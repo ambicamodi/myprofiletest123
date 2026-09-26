@@ -1,706 +1,1268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ambica Modi | IT Student</title>
+<title>Ambica Modi — IT Student</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b0b0f;
-            color: #f5f5f5;
-            line-height: 1.6;
-        }
+:root {
+    --paper: #f7f1e8;
+    --paper2: #efe4d4;
+    --ink: #25221f;
+    --muted: #756e66;
+    --wine: #7b2638;
+    --line: #d9cbbb;
+    --white: #fffaf3;
+}
 
-        /* NAVBAR */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(11, 11, 15, 0.85);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid #22222b;
-        }
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .logo span {
-            color: #9d7cff;
-        }
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
+}
 
-        nav ul {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #b8b8c5;
-            transition: 0.3s;
-        }
+.container {
+    width: min(1120px, 88%);
+    margin: auto;
+}
 
-        nav a:hover {
-            color: #a77bff;
-        }
+/* ================= NAVBAR ================= */
 
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 10% 70px;
-            position: relative;
-            overflow: hidden;
-        }
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 450px;
-            height: 450px;
-            background: #6c3cff;
-            filter: blur(180px);
-            opacity: 0.18;
-            top: 10%;
-            right: 5%;
-        }
+    padding: 18px 0;
 
-        .hero-content {
-            max-width: 750px;
-            position: relative;
-            z-index: 1;
-        }
+    background: rgba(247, 241, 232, 0.88);
+    backdrop-filter: blur(12px);
 
-        .tag {
-            display: inline-block;
-            padding: 8px 16px;
-            border: 1px solid #493878;
-            border-radius: 30px;
-            color: #b99cff;
-            background: #171321;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
+    border-bottom: 1px solid rgba(217, 203, 187, 0.65);
+}
 
-        h1 {
-            font-size: clamp(48px, 8vw, 86px);
-            line-height: 1;
-            margin-bottom: 25px;
-        }
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        h1 span {
-            color: #a77bff;
-        }
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+    font-weight: 700;
+    color: var(--wine);
+}
 
-        .hero p {
-            color: #aaaab7;
-            font-size: 19px;
-            max-width: 650px;
-            margin-bottom: 35px;
-        }
+.logo span {
+    font-family: "DM Sans";
+    font-size: 12px;
+    color: var(--muted);
+    margin-left: 7px;
+}
 
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
 
-        .btn {
-            text-decoration: none;
-            padding: 13px 24px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+nav li a {
+    font-size: 14px;
+    color: var(--muted);
+    transition: 0.25s;
+}
 
-        .primary {
-            background: #9b72ff;
-            color: white;
-        }
+nav li a:hover {
+    color: var(--wine);
+}
 
-        .primary:hover {
-            background: #8052ed;
-            transform: translateY(-2px);
-        }
 
-        .secondary {
-            border: 1px solid #363640;
-            color: white;
-        }
+/* ================= HERO ================= */
 
-        .secondary:hover {
-            border-color: #9b72ff;
-            color: #b99cff;
-        }
+.hero {
+    min-height: 100vh;
+    padding: 150px 0 90px;
 
-        /* GENERAL */
-        section {
-            padding: 100px 10%;
-        }
+    display: flex;
+    align-items: center;
+}
 
-        .section-title {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 70px;
+    align-items: center;
+}
 
-        .section-subtitle {
-            color: #898995;
-            margin-bottom: 45px;
-        }
+.eyebrow {
+    color: var(--wine);
 
-        /* ABOUT */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 50px;
-        }
+    font-size: 13px;
+    font-weight: 600;
 
-        .about-text {
-            color: #b3b3bd;
-            font-size: 17px;
-        }
+    letter-spacing: 2px;
+    text-transform: uppercase;
 
-        .about-text p {
-            margin-bottom: 20px;
-        }
+    margin-bottom: 20px;
+}
 
-        .info-card {
-            background: #131319;
-            border: 1px solid #272730;
-            padding: 30px;
-            border-radius: 16px;
-        }
+h1 {
+    font-family: "Playfair Display", serif;
 
-        .info-card div {
-            padding: 13px 0;
-            border-bottom: 1px solid #26262e;
-        }
+    font-size: clamp(58px, 8vw, 105px);
 
-        .info-card div:last-child {
-            border-bottom: none;
-        }
+    line-height: 0.92;
+    font-weight: 600;
 
-        .info-card strong {
-            color: #ffffff;
-        }
+    letter-spacing: -3px;
 
-        .info-card span {
-            color: #9999a5;
-        }
+    max-width: 850px;
+}
 
-        /* SKILLS */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+h1 em {
+    color: var(--wine);
+    font-style: normal;
+}
 
-        .skill {
-            padding: 12px 20px;
-            border-radius: 30px;
-            background: #16161e;
-            border: 1px solid #292932;
-            color: #c8c8d2;
-            transition: 0.3s;
-        }
+.hero-copy {
+    margin-top: 28px;
 
-        .skill:hover {
-            border-color: #9b72ff;
-            transform: translateY(-3px);
-        }
+    max-width: 650px;
 
-        /* PROJECTS */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
+    color: var(--muted);
 
-        .project {
-            background: #131319;
-            border: 1px solid #272730;
-            padding: 30px;
-            border-radius: 18px;
-            transition: 0.3s;
-        }
+    font-size: 18px;
+}
 
-        .project:hover {
-            transform: translateY(-6px);
-            border-color: #7650c8;
-        }
+.hero-actions {
+    display: flex;
+    gap: 13px;
 
-        .project-number {
-            color: #9b72ff;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
+    margin-top: 32px;
 
-        .project h3 {
-            font-size: 23px;
-            margin-bottom: 12px;
-        }
+    flex-wrap: wrap;
+}
 
-        .project p {
-            color: #9999a5;
-            margin-bottom: 20px;
-        }
+.btn {
+    padding: 12px 21px;
 
-        .project-tech {
-            color: #b99cff;
-            font-size: 14px;
-        }
+    border: 1px solid var(--wine);
 
-        /* JOURNEY */
-        .timeline {
-            border-left: 2px solid #30274a;
-            padding-left: 30px;
-            max-width: 800px;
-        }
+    font-size: 14px;
+    font-weight: 600;
 
-        .timeline-item {
-            margin-bottom: 40px;
-            position: relative;
-        }
+    transition: 0.25s;
+}
 
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            width: 11px;
-            height: 11px;
-            background: #9b72ff;
-            border-radius: 50%;
-            left: -37px;
-            top: 8px;
-        }
+.btn.primary {
+    background: var(--wine);
+    color: var(--white);
+}
 
-        .timeline-item h3 {
-            margin-bottom: 5px;
-        }
+.btn.primary:hover {
+    background: #601d2c;
+    transform: translateY(-2px);
+}
 
-        .timeline-item .date {
-            color: #9b72ff;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
+.btn.secondary:hover {
+    background: var(--paper2);
+    transform: translateY(-2px);
+}
 
-        .timeline-item p {
-            color: #9999a5;
-        }
 
-        /* CONTACT */
-        .contact-box {
-            background: linear-gradient(135deg, #171321, #111117);
-            border: 1px solid #30274a;
-            border-radius: 20px;
-            padding: 50px;
-            text-align: center;
-        }
+/* ROUND INITIAL */
 
-        .contact-box p {
-            color: #9d9da8;
-            margin: 15px auto 30px;
-            max-width: 600px;
-        }
+.stamp {
+    width: 250px;
+    height: 250px;
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #22222b;
-            color: #777783;
-            font-size: 14px;
-        }
+    border: 1px solid var(--wine);
+    border-radius: 50%;
 
-        /* MOBILE */
-        @media (max-width: 800px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            nav {
-                padding: 15px 5%;
-            }
+    transform: rotate(7deg);
 
-            nav ul {
-                display: none;
-            }
+    position: relative;
 
-            section {
-                padding: 80px 6%;
-            }
+    margin: auto;
 
-            .hero {
-                padding: 120px 6% 70px;
-            }
+    color: var(--wine);
+}
 
-            .about-grid,
-            .projects {
-                grid-template-columns: 1fr;
-            }
+.stamp::before {
+    content: "";
 
-            .contact-box {
-                padding: 35px 20px;
-            }
-        }
-    </style>
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px dashed var(--wine);
+
+    border-radius: 50%;
+}
+
+.stamp-content {
+    text-align: center;
+
+    font-family: "Playfair Display", serif;
+}
+
+.stamp-content strong {
+    display: block;
+
+    font-size: 52px;
+
+    line-height: 1;
+}
+
+.stamp-content span {
+    font-family: "DM Sans";
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 100px 0;
+}
+
+.section-head {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    align-items: end;
+
+    margin-bottom: 45px;
+}
+
+.section-number {
+    color: var(--wine);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 50px;
+
+    line-height: 1.05;
+
+    font-weight: 600;
+}
+
+.section-intro {
+    max-width: 430px;
+
+    color: var(--muted);
+}
+
+
+/* ================= ABOUT ================= */
+
+.about {
+    border-top: 1px solid var(--line);
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+}
+
+.about-text {
+    font-size: 18px;
+
+    color: #514b45;
+}
+
+.about-text p + p {
+    margin-top: 20px;
+}
+
+.fact-list {
+    border-top: 1px solid var(--line);
+}
+
+.fact {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.fact b {
+    font-size: 14px;
+}
+
+.fact span {
+    color: var(--muted);
+
+    text-align: right;
+}
+
+
+/* ================= SKILLS ================= */
+
+.skills-wrap {
+    background: var(--wine);
+
+    color: var(--white);
+}
+
+.skills-wrap .section-number {
+    color: #e9c3ca;
+}
+
+.skills-wrap .section-intro {
+    color: #ead9dc;
+}
+
+.skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.skill {
+    border: 1px solid rgba(255,255,255,0.35);
+
+    padding: 12px 18px;
+
+    font-size: 14px;
+
+    background: rgba(255,255,255,0.05);
+}
+
+
+/* ================= PROJECTS ================= */
+
+.projects {
+    background: var(--paper2);
+}
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.project {
+    background: var(--white);
+
+    border: 1px solid var(--line);
+
+    padding: 34px;
+
+    min-height: 290px;
+
+    position: relative;
+
+    transition: 0.25s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 35px rgba(75,45,32,0.08);
+}
+
+.project-no {
+    font-size: 12px;
+
+    color: var(--wine);
+
+    letter-spacing: 2px;
+}
+
+.project h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+
+    margin: 35px 0 12px;
+}
+
+.project p {
+    color: var(--muted);
+
+    max-width: 500px;
+}
+
+.tech {
+    margin-top: 25px;
+
+    color: var(--wine);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* ================= JOURNEY ================= */
+
+.journey-list {
+    border-top: 1px solid var(--line);
+}
+
+.journey-item {
+    display: grid;
+
+    grid-template-columns: 130px 1fr 1fr;
+
+    gap: 30px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.journey-year {
+    font-family: "Playfair Display", serif;
+
+    font-size: 23px;
+
+    color: var(--wine);
+}
+
+.journey-item h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+}
+
+.journey-item p {
+    color: var(--muted);
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact {
+    background: var(--ink);
+
+    color: var(--white);
+
+    text-align: center;
+
+    padding: 120px 0;
+}
+
+.contact .section-number {
+    color: #dbaab4;
+}
+
+.contact h2 {
+    font-size: clamp(48px, 7vw, 80px);
+
+    max-width: 800px;
+
+    margin: 15px auto;
+}
+
+.contact p {
+    color: #b9b3ad;
+
+    max-width: 550px;
+
+    margin: 20px auto 30px;
+}
+
+.contact .btn {
+    border-color: #d9a5af;
+}
+
+.contact .btn.secondary {
+    color: var(--white);
+}
+
+.contact .btn.secondary:hover {
+    background: #38332f;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: var(--ink);
+
+    border-top: 1px solid #403b37;
+
+    color: #88817a;
+
+    padding: 25px 0;
+
+    font-size: 13px;
+}
+
+.footer-inner {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    nav ul {
+        display: none;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 130px;
+    }
+
+    .stamp {
+        width: 190px;
+        height: 190px;
+
+        margin: 30px auto 0;
+    }
+
+    .stamp-content strong {
+        font-size: 40px;
+    }
+
+    .section-head {
+        display: block;
+    }
+
+    .section-intro {
+        margin-top: 18px;
+    }
+
+    h2 {
+        font-size: 42px;
+    }
+
+    .journey-item {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .journey-item p {
+        grid-column: 2;
+    }
+
+    .footer-inner {
+        display: block;
+    }
+
+    .footer-inner span + span {
+        display: block;
+
+        margin-top: 8px;
+    }
+}
+</style>
 </head>
+
 
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">A<span>.</span></div>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="container nav-inner">
+
+        <a class="logo" href="#">
+            Ambica
+            <span>IT / 2026</span>
+        </a>
 
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#journey">Journey</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#journey">Journey</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
         </ul>
-    </nav>
+
+    </div>
+
+</nav>
 
 
-    <!-- HERO -->
-    <section class="hero">
 
-        <div class="hero-content">
+<!-- ================= HERO ================= -->
 
-            <div class="tag">B.Tech IT Student • Developer in Progress</div>
+<header class="hero">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="eyebrow">
+                Information Technology Student
+            </div>
 
             <h1>
-                Hi, I'm <span>Ambica.</span>
+                Learning to
+                <br>
+                <em>build things</em>
+                <br>
+                that matter.
             </h1>
 
-            <p>
-                I'm an Information Technology student exploring programming,
-                problem solving, software development and the world of technology.
-                Currently learning Python, C++ and Data Structures & Algorithms,
-                while building projects and discovering where technology can take me.
+            <p class="hero-copy">
+
+                I'm Ambica, a B.Tech IT student exploring programming,
+                problem solving and software development.
+
+                Right now, I'm turning fundamentals into projects —
+                one concept at a time.
+
             </p>
 
-            <div class="buttons">
-                <a href="#projects" class="btn primary">
-                    View My Work
+            <div class="hero-actions">
+
+                <a class="btn primary" href="#projects">
+                    Explore my work
                 </a>
 
-                <a href="#contact" class="btn secondary">
-                    Let's Connect
+                <a class="btn secondary" href="#contact">
+                    Get in touch
                 </a>
+
             </div>
 
         </div>
 
-    </section>
+
+        <div class="stamp">
+
+            <div class="stamp-content">
+
+                <strong>AM</strong>
+
+                <span>
+                    Curious · Learning · Building
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
 
 
-    <!-- ABOUT -->
-    <section id="about">
 
-        <h2 class="section-title">About Me</h2>
+<!-- ================= ABOUT ================= -->
 
-        <p class="section-subtitle">
-            A little about who I am and what I'm learning.
-        </p>
+<section id="about" class="about">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="section-number">
+                    01 — ABOUT
+                </div>
+
+                <h2>
+                    A work
+                    <br>
+                    in progress.
+                </h2>
+
+            </div>
+
+            <p class="section-intro">
+
+                I'm still early in my journey, and that's something
+                I want this portfolio to reflect.
+
+                I'm here to learn properly, experiment often
+                and keep improving.
+
+            </p>
+
+        </div>
+
 
         <div class="about-grid">
+
 
             <div class="about-text">
 
                 <p>
-                    I'm currently pursuing my B.Tech in Information Technology.
-                    I'm at the stage where I'm building my fundamentals,
-                    experimenting with different technologies and learning
-                    how to turn concepts into working programs.
+
+                    I'm currently pursuing my B.Tech in Information
+                    Technology.
+
+                    My main focus is building a strong programming
+                    foundation rather than trying to learn everything
+                    at once.
+
                 </p>
 
-                <p>
-                    My current focus is on programming and problem solving.
-                    I'm learning C++ for Data Structures & Algorithms and
-                    Python for programming and future development projects.
-                </p>
 
                 <p>
-                    I'm also exploring areas such as DevOps, cloud computing
-                    and web development to understand which technologies
-                    interest me the most.
+
+                    I've been working with C++ for Data Structures &
+                    Algorithms and Python for programming and projects.
+
+                    Along the way, I've also started exploring Java,
+                    web technologies and other areas of computer science.
+
+                </p>
+
+
+                <p>
+
+                    I enjoy the process of taking something I don't
+                    understand, breaking it down and eventually making
+                    it work.
+
                 </p>
 
             </div>
 
-            <div class="info-card">
 
-                <div>
-                    <strong>Education</strong><br>
-                    <span>B.Tech — Information Technology</span>
+            <div class="fact-list">
+
+                <div class="fact">
+
+                    <b>Education</b>
+
+                    <span>
+                        B.Tech — Information Technology
+                    </span>
+
                 </div>
 
-                <div>
-                    <strong>Current Focus</strong><br>
-                    <span>C++ • DSA • Python</span>
+
+                <div class="fact">
+
+                    <b>Current focus</b>
+
+                    <span>
+                        C++ · DSA · Python
+                    </span>
+
                 </div>
 
-                <div>
-                    <strong>Learning</strong><br>
-                    <span>Java • Git/GitHub • DevOps</span>
+
+                <div class="fact">
+
+                    <b>Exploring</b>
+
+                    <span>
+                        Java · Web Development · Cloud
+                    </span>
+
                 </div>
 
-                <div>
-                    <strong>Approach</strong><br>
-                    <span>Learn → Build → Improve</span>
+
+                <div class="fact">
+
+                    <b>Mindset</b>
+
+                    <span>
+                        Learn → Build → Improve
+                    </span>
+
                 </div>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- SKILLS -->
-    <section id="skills">
 
-        <h2 class="section-title">Skills & Technologies</h2>
+<!-- ================= SKILLS ================= -->
 
-        <p class="section-subtitle">
-            Technologies I'm currently learning and working with.
-        </p>
+<section id="skills" class="skills-wrap">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="section-number">
+                    02 — TOOLKIT
+                </div>
+
+                <h2>
+                    What I'm
+                    <br>
+                    learning.
+                </h2>
+
+            </div>
+
+            <p class="section-intro">
+
+                These are technologies and concepts I'm currently
+                building familiarity with.
+
+            </p>
+
+        </div>
+
 
         <div class="skills">
 
-            <div class="skill">C++</div>
-            <div class="skill">Python</div>
-            <div class="skill">Data Structures</div>
-            <div class="skill">Algorithms</div>
-            <div class="skill">Git</div>
-            <div class="skill">GitHub</div>
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">Java</div>
-            <div class="skill">Cloud Computing</div>
-            <div class="skill">DevOps</div>
+            <span class="skill">C++</span>
+
+            <span class="skill">Python</span>
+
+            <span class="skill">Data Structures</span>
+
+            <span class="skill">Algorithms</span>
+
+            <span class="skill">HTML & CSS</span>
+
+            <span class="skill">Java</span>
+
+            <span class="skill">Git</span>
+
+            <span class="skill">GitHub</span>
+
+            <span class="skill">Tkinter</span>
+
+            <span class="skill">SQL / DBMS</span>
+
+            <span class="skill">Cloud Fundamentals</span>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- PROJECTS -->
-    <section id="projects">
 
-        <h2 class="section-title">Projects</h2>
+<!-- ================= PROJECTS ================= -->
 
-        <p class="section-subtitle">
-            Things I've built while learning.
-        </p>
+<section id="projects" class="projects">
 
-        <div class="projects">
+    <div class="container">
 
-            <div class="project">
+        <div class="section-head">
 
-                <div class="project-number">01 / Python</div>
+            <div>
 
-                <h3>Utility Bill Calculator</h3>
-
-                <p>
-                    A Python GUI application for calculating utility bills,
-                    managing billing information and maintaining bill history.
-                </p>
-
-                <div class="project-tech">
-                    Python • Tkinter • GUI
+                <div class="section-number">
+                    03 — SELECTED WORK
                 </div>
 
-            </div>
-
-
-            <div class="project">
-
-                <div class="project-number">02 / C</div>
-
-                <h3>Dynamic Array</h3>
-
-                <p>
-                    A dynamic array implementation using memory allocation,
-                    reallocation, insertion and deletion operations.
-                </p>
-
-                <div class="project-tech">
-                    C • malloc() • realloc()
-                </div>
+                <h2>
+                    Things I've
+                    <br>
+                    built.
+                </h2>
 
             </div>
 
+            <p class="section-intro">
 
-            <div class="project">
+                Small projects are where concepts start becoming real.
 
-                <div class="project-number">03 / Research</div>
-
-                <h3>Zero Trust Architecture</h3>
-
-                <p>
-                    A research project exploring Zero Trust Architecture
-                    for cloud-based enterprise systems and modern security.
-                </p>
-
-                <div class="project-tech">
-                    Cloud • Cybersecurity • NIST
-                </div>
-
-            </div>
-
-
-            <div class="project">
-
-                <div class="project-number">04 / Exploring</div>
-
-                <h3>More Coming Soon</h3>
-
-                <p>
-                    Currently learning, experimenting and working on new
-                    projects to strengthen my programming and development skills.
-                </p>
-
-                <div class="project-tech">
-                    Learning • Building • Exploring
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- JOURNEY -->
-    <section id="journey">
-
-        <h2 class="section-title">My Learning Journey</h2>
-
-        <p class="section-subtitle">
-            Where I am and where I'm heading.
-        </p>
-
-        <div class="timeline">
-
-            <div class="timeline-item">
-
-                <div class="date">2025</div>
-
-                <h3>Started B.Tech in IT</h3>
-
-                <p>
-                    Began my journey in Information Technology and started
-                    exploring programming and computer science fundamentals.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="date">2026</div>
-
-                <h3>Programming & DSA</h3>
-
-                <p>
-                    Started working more seriously with C++, Python and
-                    Data Structures & Algorithms.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="date">Currently</div>
-
-                <h3>Building & Exploring</h3>
-
-                <p>
-                    Working on projects, improving problem-solving skills,
-                    learning Git/GitHub and exploring DevOps, cloud and
-                    software development.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="date">Next</div>
-
-                <h3>Keep Building</h3>
-
-                <p>
-                    Strengthen my fundamentals, build better projects,
-                    gain practical experience and discover the areas of
-                    technology I want to pursue further.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section id="contact">
-
-        <div class="contact-box">
-
-            <h2 class="section-title">
-                Let's Connect
-            </h2>
-
-            <p>
-                I'm always open to learning, collaborating on interesting
-                projects and connecting with people in technology.
             </p>
 
-            <div class="buttons" style="justify-content:center;">
+        </div>
 
-                <a href="mailto:your-email@example.com"
-                   class="btn primary">
-                    Email Me
-                </a>
 
-                <a href="https://github.com/"
-                   target="_blank"
-                   class="btn secondary">
-                    GitHub
-                </a>
+        <div class="project-grid">
 
-            </div>
+
+            <article class="project">
+
+                <div class="project-no">
+                    PROJECT 01 · PYTHON
+                </div>
+
+                <h3>
+                    Utility Bill Calculator
+                </h3>
+
+                <p>
+
+                    A Python/Tkinter GUI application for calculating
+                    utility bills, handling billing information and
+                    maintaining bill history.
+
+                </p>
+
+                <div class="tech">
+                    Python · Tkinter · GUI
+                </div>
+
+            </article>
+
+
+
+            <article class="project">
+
+                <div class="project-no">
+                    PROJECT 02 · C
+                </div>
+
+                <h3>
+                    Dynamic Array
+                </h3>
+
+                <p>
+
+                    A dynamic array implementation using malloc and
+                    realloc, with capacity growth, insertion and
+                    deletion operations.
+
+                </p>
+
+                <div class="tech">
+                    C · Memory Allocation · Data Structures
+                </div>
+
+            </article>
+
+
+
+            <article class="project">
+
+                <div class="project-no">
+                    PROJECT 03 · RESEARCH
+                </div>
+
+                <h3>
+                    Zero Trust Architecture
+                </h3>
+
+                <p>
+
+                    A research-based study of Zero Trust Architecture
+                    for cloud-based enterprise systems, including
+                    identity, access and security concepts.
+
+                </p>
+
+                <div class="tech">
+                    Cloud · Cybersecurity · NIST
+                </div>
+
+            </article>
+
+
+
+            <article class="project">
+
+                <div class="project-no">
+                    PROJECT 04 · IN PROGRESS
+                </div>
+
+                <h3>
+                    What's next?
+                </h3>
+
+                <p>
+
+                    More experiments, more DSA practice and more
+                    projects as I continue figuring out what I want
+                    to build next.
+
+                </p>
+
+                <div class="tech">
+                    Learning · Experimenting · Building
+                </div>
+
+            </article>
+
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- FOOTER -->
-    <footer>
 
-        © 2026 Ambica Modi · Built with HTML & CSS
+<!-- ================= JOURNEY ================= -->
 
-    </footer>
+<section id="journey">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="section-number">
+                    04 — JOURNEY
+                </div>
+
+                <h2>
+                    Still
+                    <br>
+                    becoming.
+                </h2>
+
+            </div>
+
+            <p class="section-intro">
+
+                A snapshot of how my interests and skills
+                are developing.
+
+            </p>
+
+        </div>
+
+
+        <div class="journey-list">
+
+
+            <div class="journey-item">
+
+                <div class="journey-year">
+                    2025
+                </div>
+
+                <h3>
+                    Started B.Tech IT
+                </h3>
+
+                <p>
+
+                    Began exploring programming, computer science
+                    fundamentals and the world of IT.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="journey-item">
+
+                <div class="journey-year">
+                    2026
+                </div>
+
+                <h3>
+                    Going deeper
+                </h3>
+
+                <p>
+
+                    Started focusing more seriously on C++,
+                    DSA, Python and practical projects.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="journey-item">
+
+                <div class="journey-year">
+                    Now
+                </div>
+
+                <h3>
+                    Building the basics
+                </h3>
+
+                <p>
+
+                    Practising problem solving, learning Git/GitHub
+                    and experimenting with different technologies.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="journey-item">
+
+                <div class="journey-year">
+                    Next
+                </div>
+
+                <h3>
+                    More projects
+                </h3>
+
+                <p>
+
+                    Strengthen fundamentals, build useful things
+                    and gradually discover the direction I want
+                    to pursue.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact">
+
+    <div class="container">
+
+        <div class="section-number">
+            05 — SAY HELLO
+        </div>
+
+        <h2>
+            Let's make something interesting.
+        </h2>
+
+        <p>
+
+            I'm always happy to connect, learn from others
+            and work on interesting ideas.
+
+        </p>
+
+
+        <div class="hero-actions" style="justify-content:center">
+
+            <!-- CHANGE THIS EMAIL -->
+            <a
+                class="btn primary"
+                href="mailto:your-email@example.com"
+            >
+                Email me
+            </a>
+
+
+            <!-- CHANGE THIS GITHUB LINK -->
+            <a
+                class="btn secondary"
+                href="https://github.com/"
+                target="_blank"
+            >
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <span>
+            © 2026 Ambica Modi
+        </span>
+
+        <span>
+            Built with HTML, CSS & curiosity.
+        </span>
+
+    </div>
+
+</footer>
+
 
 </body>
 </html>
